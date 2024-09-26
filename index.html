@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .star-rating {
+            color: gold;
+            font-size: 1rem; /* Reduced star size */
+        }
+        .green-highlight {
+            color: green;
+            font-weight: bold;
+        }
+        .card {
+            border: none; /* Remove border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: transform 0.2s; /* Animation effect */
+            overflow: hidden; /* Ensure rounded corners */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        .card-img-top {
+            height: 150px; /* Reduce image size */
+            object-fit: cover; /* Cover image without distortion */
+        }
+        .card-title, .card-text {
+            font-size: 0.9rem; /* Reduced text size */
+        }
+        
+        .banner img {
+            max-width: 100%; /* Responsive banner */
+            max-height: 100%;
+        }
+        .search-bar {
+            width: 40%;
+            margin: 20px auto;
+            display: block;
+            border-radius: 30px;
+        }
+
+        .search-input {
+            border-radius: 30px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .search-result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto; /* Center the container */
+            width: 40%; /* Adjust width as needed */
+        }
+
+        .search-bar {
+            width: 40%;
+            margin: 20px auto;
+            display: block;
+            border-radius: 30px;
+        }
+        .search-input {
+            border-radius: 30px;
+            padding: 10px;
+            width: 100%;
+        }
+               .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items on opposite ends */
+            margin: 20px auto; /* Center the container */
+            width: 80%; /* Set the width of the container */
+        }
+        .logo {
+            height: 50px; /* Adjust logo height */
+        }
+
+        /* Dummy button stripe */
+        .button-stripe {
+           
+            border-top: 0px solid #ddd;
+            border-bottom: 2px solid #ddd;
+            padding: 5px 0;
+			
+        }
+
+        .button-stripe a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 5px;
+            font-size: 0.9rem;
+			color: white;
+        }
+
+        .button-stripe a:hover {
+            color: #0056b3;
+            text-decoration: white;
+        }
+		 .button-stripe a:hover {
+            color: gray; /* Hover color */
+        }
+		  /* Right buttons */
+        .right-buttons {
+            display: flex;
+            align-items: right;
+        }
+
+        .right-buttons a {
+            margin-left: 10px; /* Space between buttons */
+            color: white; /* Button text color */
+        }
+
+        .right-buttons a:hover {
+            color: #007bff; /* Hover color */
+        }
+		#recipeDetails .card {
+    display: flex;
+    flex-direction: row; /* Arrange image and text side by side */
+}
+
+#recipeDetails img {
+    width: 100%; /* Make sure image fits the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+		
+
+    </style>
+</head>
+   <!-- Dummy Button Stripe -->
+    <div class="button-stripe text-left bg-dark text-white">
+        <a href="#">Explore</a>
+        <a href="#">Newsfeed</a>
+        <a href="#">Contact</a>
+        <a href="#">Newsletter</a>
+        <div class="text-right">
+             <a href="#" class="btn btn-link ">
+                <i class="fas fa-user-plus"></i> Register
+            </a>
+            <a href="#" class="btn btn-link ">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    </div>
+<body>
+
+    <!-- Search Bar with Logo -->
+    <div class="search-container">
+        <img src="https://s3-alpha-sig.figma.com/img/032e/154f/788af3bbc8bbe4659d7b51bb9a350778?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YmVL9a9EeMhgbMIZ4MG3dP8NJv0Or02bqbXVchktGs70nwweWbt0dZ6IP-dR4O8Aky8NeaPDtL9idfugFcfVgl0MopuuM3GcmN8XcQqnRyXKppv6Ykid1B5OxEsuRG0x0~dCNvq6M~LWuWjMPdBaRd42f9pLoDc6EdonBneXeW5LdeQepdY1BuLz6JThL2PBa~e6DpAwge7CHoy19posM9pQPKOQJo4JDnlZzQCrEkZnPbPjpANzakEs7iZNc18oNidZW47UESs7vu3Wkye6TfEa-MIvnA927U795DRQAjZqz~hrcMe-qrXVQEZnrC4ONvgR-KaTNGb9px0LKqVhdg__" alt="Logo">
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search recipes By Name">
+        </div>
+    </div>
+    
+   
+
+    <!-- Banner -->
+    <div class="banner mb-4">
+        <img src="https://s3-alpha-sig.figma.com/img/2938/0d83/ad91ce11bcef1ab38e07358ccd12f74b?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ocf7LnCFS~BXm-QLsE4MvPI9feXXTZxePW2dlSEthprPSmlDCo2BOi~29U-mkUxWJFJqhd5yI1GnUB2pJLQDYjfzfiyr-OfCuMJznhFqfpJi53ehqEOylu0rhszxxTFqirpceLTVcyWSsBXW~ZomDlPTift6kZBYObN1LvdKB9AgSmvZ5Guv9Jn5zBFEcYVEB07JWx6igHT0E-NEq-koPK8UDtM0CZb26JxXg1tW~Xq4lzFMeUk6eRvslfhFOFQyTyf4E0dKfeSDFG7JYx0N8xTbJnJFd1Q7B8oGi9kVrp7ClbTHoF7jyQLOa08qzPo6-8KFWuZLwv3Lb9YkElzKfw__" alt="Banner" class="img-fluid" class="img-fluid" style="max-height: 300px; width: 100%; object-fit: cover;">
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar mb-4">
+        <div class="container">
+            <div class="mx-auto">
+                <div class="border-top border-bottom border-dark py-2">
+                    <ul class="navbar-nav d-flex flex-row justify-content-center">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Explore</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row" id="recipeList">
+            <!-- Recipe Card Placeholder, will be filled by JavaScript -->
+        </div>
+    </div>
+<!-- Recipe Details Section -->
+<div id="recipeDetails" class="mt-4" style="display: none;">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img id="detailsImage" class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 id="detailsName" class="card-title"></h5>
+                    <p id="detailsInstructions" class="card-text"></p>
+					<p id="detailsingredients" class="card-text"></p>
+                    <p class="card-text"><strong>Ingredients:</strong>
+					
+					<ol>
+					<li>
+					Pizza dough,					
+					</li>
+					<li>				
+					Tomato sauce,					
+					</li>
+					<li>				
+					Fresh mozzarella cheese,					
+					</li>
+					<li>					
+					Fresh basil leaves,					
+					</li>
+					<li>					
+					Olive oil,				
+					</li>
+					<li>					
+					Salt and pepper to taste
+					</li>				
+					</ol>					
+					
+					<span id="detailsIngredients"></span></p>
+					<p class="card-text"><strong>Prep Time Minutes: 20</strong> </span></p>
+                    <p class="card-text"><strong>Meal Type:</strong> <span id="detailsMealType"></span></p>
+                    <p class="card-text"><strong>Rating:</strong> <span id="detailsRating"></span></p>
+					
+                    <p class="card-text green-highlight"><span id="detailsReviews"></span> reviews</p>
+                    <button id="backButton" class="btn btn-secondary">Back to Recipes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Footer Section -->
+    <footer class="">
+        <div class="footer-banner">
+            <img src="https://s3-alpha-sig.figma.com/img/8386/e272/f3c8841410b80944fda4b3db9cbb8f5a?Expires=1728259200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z8~WS5G1-9OC8dqMro5v4sTHDKq50~Lf-ffPujKnO6wJykYbecIccHObwEZ7r9zu4lN7xkyTFXrOzU45VgVKxEV15TG-Bit34fvYBtdMI0Tfw3tFPeLAmMnljaVPsJQXcmOYzymZPLy50Pm09467czNoWvqYtM8vsUX7fe9s1zqvwTxYAetGSa0u8MCDCS3vjHC5NBeUl-ccTONfwJWwdGcX5zTNUJIsmijiTpnkCOQ7VmjBERqlvhML81g~kf~qFGKQEG7vbxk042N2NAOeROXhLFf2qufcUd~vSPyq9ez4ZByXb3ji~pVZ0MqzQSHUzUZjWo3Ajh~tIz1dVefa-w__" alt="Logo" class="img-fluid mb-2" class="img-fluid" style="max-height: 80px; width: 100%; object-fit: cover; opacity: 0.7;"  >
+           <div class="text-center mt-3 padd">
+                <p>© 2024 Recipe Site. All rights reserved.</p>
+            </div>   
+        </div>
+    </footer>
+	  <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
