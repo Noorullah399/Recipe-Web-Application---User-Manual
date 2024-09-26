@@ -35,3 +35,12 @@ Project Structure
 HTML: The core structure of the web application is built using HTML5. It includes the layout for the navigation bar, search bar, recipe listing, and detailed recipe views.
 CSS: Custom styles are applied for the layout and hover animations, with Bootstrap providing the grid system for responsiveness.
 JavaScript: The logic for rendering recipes, searching, and viewing details is handled through JavaScript. It includes event listeners for user interactions and functions for filtering and displaying recipes.
+#Main Page
+![Uploading screencapture-file-C-Users-Noorullah-Desktop-recp-index-html-2024-09-26-22_10_13.png…]()
+#Search
+![Uploading screencapture-file-C-Users-Noorullah-Desktop-recp-index-html-2024-09-26-22_10_56.png…]()
+#Recipe Tab
+![Uploading screencapture-file-C-Users-Noorullah-Desktop-recp-index-html-2024-09-26-22_11_19.png…]()
+
+
+
